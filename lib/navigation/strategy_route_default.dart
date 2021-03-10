@@ -25,7 +25,7 @@ class StrategyRouteDefault extends StrategyRoute {
       navigationService.navigator?.pop(routeBackModel.routeParameter);
     } else {
       navigationService.navigator
-          ?.popUntil(ModalRoute.withName(routeBackModel?.route ?? "/"));
+          ?.popUntil(ModalRoute.withName(routeBackModel.route ?? "/"));
     }
   }
 }
