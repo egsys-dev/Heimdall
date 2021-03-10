@@ -3,9 +3,10 @@ import 'package:heimdall/model/sys_route.dart';
 
 ///Classe responsável por criar o comportamento de avançar
 ///no sistema de rotas
-class RouteForward<T> extends BaseRoute{
+class RouteForward<T> extends BaseRoute {
   @override
   final String route;
+
   ///Atributo utilizado para retornar algum
   ///valor da tela empilhada, para tipa-lo
   ///devemos tipar a chamada do [CoreNavigator.navigateTo]

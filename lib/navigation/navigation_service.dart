@@ -7,8 +7,7 @@ class NavigationService {
 
   factory NavigationService() => _instance;
 
-  final GlobalKey<NavigatorState> navigatorKey =
-       GlobalKey<NavigatorState>();
+  final GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
 
   NavigatorState? get navigator => navigatorKey.currentState;
 }
