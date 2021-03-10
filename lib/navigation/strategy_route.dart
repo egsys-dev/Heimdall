@@ -22,11 +22,11 @@ abstract class StrategyRoute {
   ///Se a rota enviada no [RouteBackModel] for "/" será retornado até a tela root do sistema.
   void onRoute(SysRoute sysRoute) {
     if (sysRoute.routeBack != null) {
-      onBack(sysRoute.routeBack);
+      onBack(sysRoute.routeBack!);
     }
 
     if (sysRoute.routeForward != null) {
-      onForward(sysRoute.routeForward);
+      onForward(sysRoute.routeForward!);
     }
   }
 

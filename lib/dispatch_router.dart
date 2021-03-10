@@ -5,8 +5,8 @@ import 'package:heimdall/navigation/navigation_service.dart';
 import 'package:heimdall/navigation/strategy_route.dart';
 import 'package:heimdall/navigation/strategy_route_default.dart';
 
-class DispatchRouter extends Disposable {
-  StrategyRoute _strategyRoute;
+class DispatchRouter extends FancyDelegate {
+  late StrategyRoute _strategyRoute;
   GlobalKey<NavigatorState> navigatorKey = NavigationService().navigatorKey;
 
   static final DispatchRouter _instance = DispatchRouter._();
@@ -15,15 +15,11 @@ class DispatchRouter extends Disposable {
     listenOn<SysRoute>(onRouteDispatched);
   }
 
-  void init(StrategyRoute strategyRoute) {
-    _strategyRoute = strategyRoute;
+  void init({StrategyRoute? strategyRoute}) {
+    _strategyRoute = strategyRoute ?? StrategyRouteDefault(NavigationService());
   }
 
-  factory DispatchRouter() {
-    _instance._strategyRoute ??= StrategyRouteDefault(NavigationService());
-
-    return _instance;
-  }
+  factory DispatchRouter()  => _instance;
 
   void onRouteDispatched(SysRoute sysRoute) => _strategyRoute.onRoute;
 }
